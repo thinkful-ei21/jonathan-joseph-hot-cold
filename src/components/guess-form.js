@@ -1,15 +1,14 @@
 import React from 'react';
 
-import './guess-form.css';
+import './styles/guess-form.css';
 
 export default function GuessForm(props) {
     return (
-        <form>
+        <form onSubmit={e => props.newGuess(e)}>
             <input type="text" name="userGuess" id="userGuess"
                 className="text" maxLength="3" autoComplete="off"
-                placeholder="Enter your Guess" required />
-            <input type="submit" id="guessButton" className="button" name="submit" value="Guess"/>
+                placeholder="Enter your Guess" required ref={props.input} />
+            <input type="submit" id="guessButton" className="button" name="submit" value="Guess" />
         </form>
     );
 };
-
