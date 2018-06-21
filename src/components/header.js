@@ -38,7 +38,7 @@ export default class Header extends React.Component {
 
         return (
             <header>
-                <TopNav showInfo={() => this.showInfo()}/>
+                <TopNav resetGame={this.props.resetGame} showInfo={() => this.showInfo()}/>
                 <h1>HOT or COLD</h1>
             </header>
         ) 

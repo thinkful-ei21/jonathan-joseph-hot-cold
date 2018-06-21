@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Header from './header';
+// import Header from './header';
 import GuessSection from './guess-section';
-import GuessCount  from './guess-count';
-import GuessList from './guess-list';
+// import GuessCount  from './guess-count';
+// import GuessList from './guess-list';
 
 export default class Game extends React.Component {
     constructor(props) {
@@ -16,13 +16,21 @@ export default class Game extends React.Component {
         }
     }
 
+    resetGame(){
+        this.setState({
+            count: 0,
+            guesses: [],
+            feedback: "Make your guess!"
+        })
+    }
+
     render() {
 
         return (
             <div>
-                <Header />
-                {/* <GuessSection />
-                <GuessCount />
+                {/* <Header resetGame={() => this.resetGame()}/> */}
+                <GuessSection />
+                {/* <GuessCount />
                 <GuessList /> */}
             </div>
         )
