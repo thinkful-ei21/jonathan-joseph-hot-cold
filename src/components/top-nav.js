@@ -1,18 +1,26 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {resetGame, toggleInfo} from '../actions';
 
 import './styles/top-nav.css';
 
-export default function TopNav(props) {
+export function TopNav(props) {
     return (
         <nav>
             <ul className="clearfix">
                 <li>
-                    <a className="what" href="#" onClick={e => props.showInfo(e)}>
+                    <a className="what" href="#" onClick={() => 
+                        props.dispatch(
+                            toggleInfo(true)
+                        )}>
                         What?
                     </a>
                 </li>
                 <li>
-                    <a className="new" href="#" onClick={e => props.resetGame(e)}>
+                    <a className="new" href="#" onClick={() => 
+                    props.dispatch(
+                        resetGame(Math.floor(Math.random() * 100) + 1)
+                    )}>
                         + New Game
                     </a>
                 </li>
@@ -20,4 +28,6 @@ export default function TopNav(props) {
         </nav>
     );
 }
+
+export default connect()(TopNav);
 
